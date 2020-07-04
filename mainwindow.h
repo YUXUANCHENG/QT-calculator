@@ -29,5 +29,8 @@ private slots:
     void clear();
     void plus();
     void equal();
+    void minus();
+    void X();
+    void devide();
 };
 #endif // MAINWINDOW_H

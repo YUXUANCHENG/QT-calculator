@@ -22,6 +22,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_clear,SIGNAL(released()),this,SLOT(clear()));
     connect(ui->pushButton_plus,SIGNAL(released()),this,SLOT(plus()));
     connect(ui->pushButton_equal,SIGNAL(released()),this,SLOT(equal()));
+    connect(ui->pushButton_minus,SIGNAL(released()),this,SLOT(minus()));
+    connect(ui->pushButton_X,SIGNAL(released()),this,SLOT(X()));
+    connect(ui->pushButton_devide,SIGNAL(released()),this,SLOT(devide()));
 
 }
 
@@ -84,17 +87,58 @@ void MainWindow::equal(){
         QString new_number = QString::number(first_N + second_N, 'g', 15);
         ui->label->setText(new_number);
     }
+    else if (checked == 2){
+        QString new_number = QString::number(first_N - second_N, 'g', 15);
+        ui->label->setText(new_number);
+    }
+    else if (checked == 3){
+        QString new_number = QString::number(first_N * second_N, 'g', 15);
+        ui->label->setText(new_number);
+    }
+    else if (checked == 4){
+        QString new_number = QString::number(first_N / second_N, 'g', 15);
+        ui->label->setText(new_number);
+    }
 
     checked = 0;
 
 
 }
 
+void MainWindow::minus(){
+
+    if (checked > 0){
+        equal();
+    }
+
+    checked = 2;
+    first_N = (ui->label->text()).toDouble();
+    need_to_clear = true;
+}
 
 
+void MainWindow::X(){
 
+    if (checked > 0){
+        equal();
+    }
 
+    checked = 3;
+    first_N = (ui->label->text()).toDouble();
+    need_to_clear = true;
+}
 
+void MainWindow::devide(){
+
+    if (checked > 0){
+        equal();
+    }
+
+    checked = 4;
+    first_N = (ui->label->text()).toDouble();
+    need_to_clear = true;
+
+}
 
 
 
