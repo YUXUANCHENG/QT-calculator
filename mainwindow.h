@@ -17,8 +17,17 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    double first_N;
+    double second_N;
+    int checked = 0;
+    bool need_to_clear = false;
 
 private slots:
     void press_digit();
+    void negative();
+    void decimal();
+    void clear();
+    void plus();
+    void equal();
 };
 #endif // MAINWINDOW_H
